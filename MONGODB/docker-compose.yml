@@ -1,0 +1,21 @@
+version: '3.4'
+
+# lembrar de baixar a imagem antes de executar a operação
+# pode ser feito fica docker pull
+# pode ser feito via docker-compose pull
+
+services:
+    database: 
+        image: bitnami/mongodb:latest
+        container_name: 'mongo-local'
+        environment: 
+            - AUTH=no
+        ports:
+            - 27017:27017
+            - 27019:27019
+networks:
+    default:
+      external:
+        name: rede-integrada
+
+        
